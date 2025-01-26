@@ -1,0 +1,54 @@
+import React from "react";
+
+const Calendar = () => {
+  // Get the current date
+  const currentDate = new Date();
+  const currentMonth = currentDate.getMonth();
+  const currentYear = currentDate.getFullYear();
+  const currentDay = currentDate.getDate();
+
+  // Get the first day of the current month
+  const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
+  const firstDayIndex = firstDayOfMonth.getDay(); // Day of the week for the 1st of the month
+
+  // Get the number of days in the current month
+  const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
+  const daysInMonth = lastDayOfMonth.getDate();
+
+  // Generate an array of days to display in the calendar
+  const days = [];
+  for (let i = 1; i <= daysInMonth; i++) {
+    days.push(i);
+  }
+
+  // Add empty slots before the first day of the month to align the calendar
+  const emptySlots = Array(firstDayIndex).fill(null);
+
+  // Combine empty slots and days of the month
+  const calendarDays = [...emptySlots, ...days];
+
+  return (
+    <section className="third_item w-full bg-slate-200/30 rounded-xl p-3 font-sans">
+      <h2 className="text-lg tracking-[0.3em] font-medium text-center uppercase">
+        {currentDate.toLocaleString("default", { month: "long" })} {currentYear}
+      </h2>
+      <div className="w-full grid grid-cols-7 gap-1 mt-4">
+        {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
+          <div key={day} className="p-2 text-center font-semibold text-secondary">
+            {day}
+          </div>
+        ))}
+        {calendarDays.map((day, index) => (
+          <div
+            key={index}
+            className={`calendar-day ${day === currentDay ? "bg-secondary" : ""} rounded-md p-2 text-center`}
+          >
+            {day}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default Calendar;

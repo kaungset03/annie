@@ -1,0 +1,31 @@
+.grid_tem_area {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas:
+    "e e e b b c c"
+    "a a a b b c c"
+    "a a a b b d d"
+    "a a a b b d d";
+  gap: 16px;
+}
+
+.first_item {
+  grid-area: a;
+}
+
+.second_item {
+  grid-area: b;
+}
+
+.third_item {
+  grid-area: c;
+}
+
+.fourth_item {
+  grid-area: d;
+}
+
+.fifth_item {
+  grid-area: e;
+}

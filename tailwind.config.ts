@@ -9,7 +9,12 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        bg1: "url('/bg1.jpg')",
+        bg0: "url('/bg0.webp')",
+        bg1: "url('/bg1.webp')",
+        bg2: "url('/bg2.webp')",
+        bg3: "url('/bg3.webp')",
+        bg4: "url('/bg4.webp')",
+        bg5: "url('/bg5.webp')",
       },
       colors: {
         primary: "#DFF6FF",

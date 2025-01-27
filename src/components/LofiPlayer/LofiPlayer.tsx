@@ -19,8 +19,8 @@ const LofiPlayer = () => {
         <div className="flex flex-col items-center gap-y-3">
           <MusicNote />
           <div>
-            <h3 className="text-lg font-semibold">love</h3>
-            <p className="text-sm font-medium">Wave to Earth</p>
+            <h3 className="text-xl font-semibold">love</h3>
+            <p className="font-medium">Wave to Earth</p>
           </div>
         </div>
         <div className="w-full flex items-center justify-around">
@@ -45,14 +45,14 @@ const LofiPlayer = () => {
           <li className="w-full grid grid-cols-6 items-center">
             <span className="text-primary text-sm font-medium">Rain:</span>
             <VolumeSlider />
-            <button className="ml-auto bg-secondary text-primary p-2 rounded-md">
+            <button className="ml-auto border-2 border-secondary text-secondary p-2 rounded-md">
               <Droplet size={18} />
             </button>
           </li>
           <li className="w-full grid grid-cols-6 items-center">
             <span className="text-primary text-sm font-medium">Flame:</span>
             <VolumeSlider />
-            <button className="ml-auto bg-secondary text-primary p-2 rounded-md">
+            <button className="ml-auto border-2 border-secondary text-secondary p-2 rounded-md">
               <Flame size={18} />
             </button>
           </li>

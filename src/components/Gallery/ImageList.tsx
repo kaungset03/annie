@@ -25,11 +25,11 @@ const ImageList = () => {
 
   return (
     <>
-      <ul className="w-full grid grid-cols-3 gap-3 flex-grow mt-6">
+      <ul className="w-full grid grid-cols-2 gap-3 flex-grow mt-6">
         {images.map((image, i) => (
           <li
             key={image}
-            className="border-2 border-secondary rounded-lg w-fit h-fit flex justify-center items-center cursor-pointer"
+            className="border-2 border-secondary rounded-lg w-fit aspect-video flex justify-center items-center cursor-pointer"
             onClick={() => showSlider(i)}
           >
             <Image
@@ -37,7 +37,7 @@ const ImageList = () => {
               width={300}
               height={300}
               alt={`image-${i}`}
-              className="w-full h-full object-contain rounded-md"
+              className="w-full h-full object-cover rounded-md"
             />
           </li>
         ))}

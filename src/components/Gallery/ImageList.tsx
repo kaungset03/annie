@@ -7,12 +7,12 @@ import { useState } from "react";
 const ImageList = () => {
   const [imgIndex, setImgIndex] = useState<number | null>(null);
   const images = [
-    "/bg0.jpg",
-    "/bg1.jpg",
-    "/bg2.jpg",
-    "/bg3.jpg",
-    "/bg4.jpg",
-    "/bg5.jpg",
+    "/bg0.webp",
+    "/bg1.webp",
+    "/bg2.webp",
+    "/bg3.webp",
+    "/bg4.webp",
+    "/bg5.webp",
   ];
 
   const showSlider = (i: number) => {

@@ -1,10 +1,10 @@
 "use client";
 
-import { Droplet, Flame, Music, Pause, Play, SkipBack, SkipForward } from "lucide-react";
+import { Music, Pause, Play, SkipBack, SkipForward } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import VolumeSlider from "@/components/LofiPlayer/VolumeSlider";
 import { formatDuration } from "@/helpers/helpers";
 import { songs } from "@/constants/constants";
+import VSlider from "./VSlider";
 
 const MusicPlayer = () => {
   const playerRef = useRef<HTMLAudioElement>(null);
@@ -12,7 +12,7 @@ const MusicPlayer = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolume] = useState(1);
+  const [volume, setVolume] = useState(0.5);
 
   const handleVolumeChange = (value: number) => {
     if (playerRef.current) {
@@ -112,25 +112,25 @@ const MusicPlayer = () => {
       <ul className="w-full flex flex-col gap-y-6">
         <li className="w-full grid grid-cols-6 items-center">
           <span className="text-primary text-sm font-medium">Music:</span>
-          <VolumeSlider current={volume} onChange={handleVolumeChange} />
+          <VSlider volume={volume} onChange={handleVolumeChange} />
           <button className="ml-auto bg-secondary border-2 border-secondary text-primary p-2 rounded-md">
             <Music size={18} />
           </button>
         </li>
-        <li className="w-full grid grid-cols-6 items-center">
+        {/* <li className="w-full grid grid-cols-6 items-center">
           <span className="text-primary text-sm font-medium">Rain:</span>
-          <VolumeSlider current={volume} onChange={handleVolumeChange} />
+          <VSlider />
           <button className="ml-auto border-2 border-secondary text-secondary p-2 rounded-md">
             <Droplet size={18} />
           </button>
         </li>
         <li className="w-full grid grid-cols-6 items-center">
           <span className="text-primary text-sm font-medium">Flame:</span>
-          <VolumeSlider current={volume} onChange={handleVolumeChange} />
+          <VSlider />
           <button className="ml-auto border-2 border-secondary text-secondary p-2 rounded-md">
             <Flame size={18} />
           </button>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

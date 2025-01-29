@@ -1,61 +1,99 @@
 "use client";
 
-import {
-  Droplet,
-  Flame,
-  Music,
-  Pause,
-  Play,
-  SkipBack,
-  SkipForward,
-} from "lucide-react";
+import { Droplet, Flame, Music, Pause, Play, SkipBack, SkipForward } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import VolumeSlider from "@/components/LofiPlayer/VolumeSlider";
+import { formatDuration } from "@/helpers/helpers";
+import { songs } from "@/constants/constants";
 
 const MusicPlayer = () => {
   const playerRef = useRef<HTMLAudioElement>(null);
+  const [currentSIndex, setCurrentSIndex] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolume] = useState(0.5);
+  const [volume, setVolume] = useState(1);
+
+  const handleVolumeChange = (value: number) => {
+    if (playerRef.current) {
+      playerRef.current.volume = value;
+    }
+    setVolume(value);
+  };
 
   const playPause = () => {
     if (playerRef.current) {
-      if (playerRef.current.paused) {
-        playerRef.current.play();
-      } else {
+      if (isPlaying) {
         playerRef.current.pause();
+      } else {
+        playerRef.current.play();
       }
+      setIsPlaying(!isPlaying);
     }
   };
 
-  const handleVolumeChange = (v: number) => {
-    setVolume(v);
+  const handleNextSong = () => {
+    const newIndex = (currentSIndex + 1) % songs.length;
+    setCurrentSIndex(newIndex);
+  };
+
+  const handlePreviousSong = () => {
+    const newIndex = (currentSIndex - 1 + songs.length) % songs.length;
+    setCurrentSIndex(newIndex);
+  };
+
+  const handleLoadedMetadata = () => {
     if (playerRef.current) {
-      playerRef.current.volume = v;
+      setDuration(playerRef.current.duration);
+    }
+  };
+
+  const handleTimeUpdate = () => {
+    if (playerRef.current) {
+      setCurrentTime(playerRef.current.currentTime);
     }
   };
 
   useEffect(() => {
     if (playerRef.current) {
-      playerRef.current.volume = volume;
+      playerRef.current.src = songs[currentSIndex].url;
     }
-  }, [volume]);
+  }, [currentSIndex]);
 
   return (
     <div className="w-full flex flex-col items-center gap-y-8">
-      <div>
-        <h3 className="text-xl font-semibold">love</h3>
-        <p className="font-medium">Wave to Earth</p>
+      <div className="flex items-center gap-x-6">
+        <p className="font-medium flex gap-x-[2px]">
+          <span className="min-w-14 text-center">
+            {formatDuration(currentTime)}
+          </span>
+          <span>/</span>
+          <span className="min-w-14 text-center">
+            {formatDuration(duration)}
+          </span>
+        </p>
+        <div>
+          <h3 className="text-lg font-semibold">
+            {songs[currentSIndex].title}
+          </h3>
+          <p className="text-sm font-medium text-slate-300">
+            {songs[currentSIndex].artist}
+          </p>
+        </div>
       </div>
       <div className="w-full flex items-center justify-around">
         <audio
-          // src="https://data.freetouse.com/music/tracks/51ba83ee-55cb-0f12-e294-64d972f9981a/file/mp3"
-          src="https://data.freetouse.com/music/tracks/3b51a997-3c4d-0db6-43df-35befe757eb3/file/mp3"
-          playsInline
-          onPlay={() => setIsPlaying(true)}
-          onPause={() => setIsPlaying(false)}
+          src={songs[currentSIndex].url}
+          autoPlay={isPlaying}
+          onLoadedMetadata={handleLoadedMetadata}
+          onTimeUpdate={handleTimeUpdate}
+          onEnded={handleNextSong}
           ref={playerRef}
         />
-        <button className="bg-secondary text-primary p-3 rounded-full">
+        <button
+          className="bg-secondary text-primary p-3 rounded-full"
+          onClick={handlePreviousSong}
+        >
           <SkipBack size={20} />
         </button>
         <button
@@ -64,7 +102,10 @@ const MusicPlayer = () => {
         >
           {isPlaying ? <Pause size={20} /> : <Play size={20} />}
         </button>
-        <button className="bg-secondary text-primary p-3 rounded-full">
+        <button
+          className="bg-secondary text-primary p-3 rounded-full"
+          onClick={handleNextSong}
+        >
           <SkipForward size={20} />
         </button>
       </div>

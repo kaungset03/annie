@@ -4,7 +4,8 @@ import { Music, Pause, Play, SkipBack, SkipForward } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { formatDuration } from "@/helpers/helpers";
 import { songs } from "@/constants/constants";
-import VSlider from "./VSlider";
+import VSlider from "@/components/LofiPlayer/VSlider";
+import SoundEffect from "@/components/LofiPlayer/SoundEffect";
 
 const MusicPlayer = () => {
   const playerRef = useRef<HTMLAudioElement>(null);
@@ -59,6 +60,12 @@ const MusicPlayer = () => {
       playerRef.current.src = songs[currentSIndex].url;
     }
   }, [currentSIndex]);
+
+  useEffect(() => {
+    if (playerRef.current) {
+      playerRef.current.volume = volume;
+    }
+  }, [volume]);
 
   return (
     <div className="w-full flex flex-col items-center gap-y-8">
@@ -117,6 +124,15 @@ const MusicPlayer = () => {
             <Music size={18} />
           </button>
         </li>
+        <SoundEffect
+          src="/eff-rain.mp3"
+          title="Rain"
+        />
+        <SoundEffect
+          src="/eff-fire.mp3"
+          title="Fire"
+        />
+
         {/* <li className="w-full grid grid-cols-6 items-center">
           <span className="text-primary text-sm font-medium">Rain:</span>
           <VSlider />

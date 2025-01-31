@@ -8,7 +8,7 @@ import "./grid.css";
 
 const Home = () => {
   return (
-    <main className="w-full max-w-[1600px] h-screen mx-auto grid_tem_area p-12">
+    <main className="w-full max-w-[1600px] h-screen mx-auto grid_tem_area p-8">
       {/* <ImageSlider /> */}
       <LofiPlayer />
       <Goals />

@@ -2,10 +2,10 @@ import GoalItem from "@/components/Goals/GoalItem";
 import Image from "next/image";
 
 const Goals = () => {
-  const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const numbers = [0, 1, 2, 3, 4, 5];
   return (
     <section className="second_item w-full h-full bg-slate-200/30 rounded-xl font-sans p-4 overflow-y-auto">
-      <h2 className="text-xl tracking-[0.3em] font-medium text-center uppercase">
+      <h2 className="text-xl tracking-[0.3em] font-semibold text-center uppercase">
         Welcome
       </h2>
       <article className="w-full flex flex-col items-center mt-6 gap-y-6">

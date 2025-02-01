@@ -29,7 +29,7 @@ const Calendar = () => {
 
   return (
     <section className="third_item w-full bg-slate-200/30 rounded-xl p-3 font-sans">
-      <h2 className="text-lg tracking-[0.3em] font-medium text-center uppercase">
+      <h2 className="text-lg tracking-[0.3em] font-semibold text-center uppercase">
         {currentDate.toLocaleString("default", { month: "long" })} {currentYear}
       </h2>
       <div className="w-full grid grid-cols-7 gap-1 mt-4">

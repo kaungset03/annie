@@ -1,3 +1,5 @@
+import { Quote } from "lucide-react";
+
 type Quote = {
   q: string;
   a: string;
@@ -16,11 +18,14 @@ const Quotes = async () => {
 
   return (
     <section className="fifth_item w-full h-full bg-slate-200/30 rounded-xl font-sans p-4">
-      <h2 className="text-xl tracking-[0.3em] font-medium text-center uppercase">
-        Quotes
+      <h2 className="text-xl tracking-[0.3em] font-semibold text-center uppercase">
+        Quote of the day
       </h2>
       <div className="w-full p-2 mt-4 flex flex-col gap-y-2">
-        <p className="text-center text-secondary font-medium">{quotes[0].q}</p>
+        <p className="text-center text-lg text-secondary font-medium">
+          {quotes[0].q}
+        </p>
+
         <strong className="text-right text-secondary font-medium text-sm">
           {quotes[0].a}
         </strong>

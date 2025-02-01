@@ -5,3 +5,32 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+/* primary: "#DFF6FF",
+secondary: "#2A3D45" */
+
+/* Style for WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #DFF6FF;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #2A3D45;
+  border-radius: 10px;
+  border: 1px solid #DFF6FF;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Style for Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2A3D45 #DFF6FF;
+}

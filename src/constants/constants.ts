@@ -1,4 +1,9 @@
-const songs = [
+type Song = {
+  title: string;
+  artist: string;
+  url: string;
+};
+const songs: Array<Song> = [
   {
     title: "Umbrella",
     artist: "Moavii",

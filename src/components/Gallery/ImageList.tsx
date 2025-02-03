@@ -29,7 +29,7 @@ const ImageList = () => {
         {images.map((image, i) => (
           <li
             key={image}
-            className="border border-secondary rounded-lg w-fit aspect-video flex justify-center items-center cursor-pointer"
+            className="border border-secondary rounded-lg w-fit aspect-video flex justify-center items-center cursor-pointer overflow-hidden"
             onClick={() => showSlider(i)}
           >
             <Image
@@ -37,7 +37,7 @@ const ImageList = () => {
               width={300}
               height={300}
               alt={`image-${i}`}
-              className="w-full h-full object-cover rounded-md"
+              className="w-full h-full scale-125 object-cover object-center rounded-md hover:scale-100 transition-transform duration-500 ease-in-out"
             />
           </li>
         ))}

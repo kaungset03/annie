@@ -1,5 +1,3 @@
-import { Quote } from "lucide-react";
-
 type Quote = {
   q: string;
   a: string;
@@ -27,7 +25,7 @@ const Quotes = async () => {
         </p>
 
         <strong className="text-right text-secondary font-medium text-sm">
-          {quotes[0].a}
+          - {quotes[0].a}
         </strong>
       </div>
       <p className="text-sm text-center text-secondary mt-4">

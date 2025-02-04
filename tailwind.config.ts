@@ -18,9 +18,17 @@ export default {
       },
       colors: {
         primary: "#DFF6FF",
-        secondary: "#2A3D45"
+        secondary: "#2A3D45",
+        background: "#BFDCE5"
       }
     },
   },
   plugins: [],
 } satisfies Config;
+
+
+// #189AB4 – A deep teal blue for a strong contrast.
+// #87C4FF – A medium sky blue for a monochromatic look.
+// #FFB4A2 – A soft coral pink for a warm, pastel contrast.
+// #A0E4CB – A mint green for a fresh, soothing combination.
+// #F4A261 – A warm, earthy orange for a striking contrast.

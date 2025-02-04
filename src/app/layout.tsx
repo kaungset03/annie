@@ -1,16 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Annie",
@@ -25,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} relative w-full h-screen antialiased bg-bg2 bg-cover bg-center bg-no-repeat bg-fixed text-primary overflow-hidden`}
+        className={`relative w-full h-screen antialiased bg-bg5 bg-cover bg-center bg-no-repeat bg-fixed text-primary overflow-hidden`}
       >
         <div className="absolute w-full h-full bg-black/30 -z-10" />
         {children}

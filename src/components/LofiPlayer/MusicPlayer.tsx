@@ -14,6 +14,15 @@ const MusicPlayer = () => {
   const [duration, setDuration] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(0.5);
+  const [isStalled, setIsStalled] = useState(false);
+
+  const handleCanPlay = () => {
+    setIsStalled(false);
+  };
+
+  const handleStalled = () => {
+    setIsStalled(true);
+  };
 
   const handleVolumeChange = (value: number) => {
     if (playerRef.current) {
@@ -95,6 +104,8 @@ const MusicPlayer = () => {
           onLoadedMetadata={handleLoadedMetadata}
           onTimeUpdate={handleTimeUpdate}
           onEnded={handleNextSong}
+          onCanPlay={handleCanPlay}
+          onStalled={handleStalled}
           ref={playerRef}
         />
         <button
@@ -104,10 +115,13 @@ const MusicPlayer = () => {
           <SkipBack size={20} />
         </button>
         <button
-          className="bg-secondary text-primary p-3 rounded-full"
+          className="bg-secondary text-primary p-3 rounded-full relative"
           onClick={playPause}
         >
           {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+          <div
+            className={`${isStalled && isPlaying ? "border-t-primary" : "border-transparent"} absolute inset-0 w-full h-full border-t animate-spin rounded-full`}
+          />
         </button>
         <button
           className="bg-secondary text-primary p-3 rounded-full"
@@ -124,14 +138,8 @@ const MusicPlayer = () => {
             <Music size={18} />
           </button>
         </li>
-        <SoundEffect
-          src="/eff-rain.mp3"
-          title="Rain"
-        />
-        <SoundEffect
-          src="/eff-fire.mp3"
-          title="Fire"
-        />
+        <SoundEffect src="/eff-rain.mp3" title="Rain" />
+        <SoundEffect src="/eff-fire.mp3" title="Fire" />
       </ul>
     </div>
   );

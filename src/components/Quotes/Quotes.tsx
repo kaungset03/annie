@@ -18,8 +18,8 @@ const Quotes = async () => {
 
   return (
     <Card title="Quote of the day" grid_item_class="fifth_item">
-      <>
-        <div className="w-full p-2 mt-4 flex flex-col gap-y-2">
+      <div className="w-full h-full flex flex-col justify-around">
+        <div className="w-full p-2 flex flex-col gap-y-2">
           <p className="text-center text-lg text-secondary font-medium">
             {quotes[0].q}
           </p>
@@ -28,37 +28,14 @@ const Quotes = async () => {
             - {quotes[0].a}
           </strong>
         </div>
-        <p className="text-sm text-center text-secondary mt-4">
+        <p className="text-sm text-center text-secondary">
           Inspirational quotes provided by{" "}
           <a href="https://zenquotes.io/" target="_blank" className="underline">
             ZenQuotes API
           </a>
         </p>
-      </>
+      </div>
     </Card>
   );
-
-  // return (
-  //   <section className="fifth_item w-full h-full bg-slate-200/30 rounded-xl font-sans p-4">
-  //     <h2 className="text-xl tracking-[0.3em] font-semibold text-center uppercase">
-  //       Quote of the day
-  //     </h2>
-  // <div className="w-full p-2 mt-4 flex flex-col gap-y-2">
-  //   <p className="text-center text-lg text-secondary font-medium">
-  //     {quotes[0].q}
-  //   </p>
-
-  //   <strong className="text-right text-secondary font-medium text-sm">
-  //     - {quotes[0].a}
-  //   </strong>
-  // </div>
-  // <p className="text-sm text-center text-secondary mt-4">
-  //   Inspirational quotes provided by{" "}
-  //   <a href="https://zenquotes.io/" target="_blank" className="underline">
-  //     ZenQuotes API
-  //   </a>
-  // </p>
-  //   </section>
-  // );
 };
 export default Quotes;

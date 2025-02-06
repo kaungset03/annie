@@ -58,7 +58,7 @@ const ImageSlider = ({ index, closeSlider }: ImageSliderProps) => {
     <div className="absolute inset-0 w-full h-screen bg-black z-50">
       <div className="w-full h-full flex items-center overflow-hidden relative">
         <button
-          className="z-40 text-primary p-3 rounded-full bg-secondary fixed top-5 right-5"
+          className="z-40 text-primary p-3 rounded-full border border-secondary fixed top-5 right-5"
           onClick={closeSlider}
         >
           <X size={18} />

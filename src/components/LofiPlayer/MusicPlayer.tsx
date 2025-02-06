@@ -109,13 +109,13 @@ const MusicPlayer = () => {
           ref={playerRef}
         />
         <button
-          className="bg-secondary text-primary p-3 rounded-full"
+          className="border border-secondary text-primary p-3 rounded-full"
           onClick={handlePreviousSong}
         >
           <SkipBack size={20} />
         </button>
         <button
-          className="bg-secondary text-primary p-3 rounded-full relative"
+          className="border border-secondary text-primary p-3 rounded-full relative"
           onClick={playPause}
         >
           {isPlaying ? <Pause size={20} /> : <Play size={20} />}
@@ -124,7 +124,7 @@ const MusicPlayer = () => {
           />
         </button>
         <button
-          className="bg-secondary text-primary p-3 rounded-full"
+          className="border border-secondary text-primary p-3 rounded-full"
           onClick={handleNextSong}
         >
           <SkipForward size={20} />
@@ -134,7 +134,7 @@ const MusicPlayer = () => {
         <li className="w-full grid grid-cols-6 items-center">
           <span className="text-primary text-sm font-medium">Music:</span>
           <VSlider volume={volume} onChange={handleVolumeChange} />
-          <button className="ml-auto bg-secondary border-2 border-secondary text-primary p-2 rounded-md">
+          <button className="ml-auto bg-background border-2 border-transparent text-primary p-2 rounded-md">
             <Music size={18} />
           </button>
         </li>

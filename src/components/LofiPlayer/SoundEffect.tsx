@@ -44,9 +44,9 @@ const SoundEffect = ({ src, title }: SoundEffectProps) => {
       <button
         className={`${
           isPlaying
-            ? "bg-secondary border-transparent text-primary"
-            : "bg-transparent border-secondary text-secondary"
-        } ml-auto border-2 p-2 rounded-md`}
+            ? "bg-background border-transparent"
+            : "bg-transparent border-secondary"
+        } ml-auto border-2 p-2 rounded-md text-primary`}
         onClick={handlePlayPause}
       >
         {title === "Rain" ? <Droplet size={18} /> : <Flame size={18} />}

@@ -19,8 +19,8 @@ const VSlider = ({ volume, onChange }: VSliderProps) => {
       className="w-full col-span-4"
       defaultValue={local}
       styles={{
-        rail: { backgroundColor: "#DFF6FF" },
-        track: { backgroundColor: "#2A3D45" },
+        track: { backgroundColor: "#1E1E1E" },
+        rail: { backgroundColor: "#FFFFFF" },
       }}
       onChange={(value) => setLocal(value as number)}
       onChangeComplete={(value) => handleComplete(value as number)}

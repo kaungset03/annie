@@ -46,9 +46,9 @@ const Calendar = () => {
         {calendarDays.map((day, index) => (
           <div
             key={index}
-            className={`calendar-day ${
-              day === currentDay ? "bg-secondary" : ""
-            } rounded-md p-2 text-center`}
+            className={`${
+              day === currentDay ? "bg-background border-primary" : "bg-transparent border-transparent"
+            } border rounded-md p-2 text-center`}
           >
             {day}
           </div>

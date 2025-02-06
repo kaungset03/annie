@@ -1,26 +1,13 @@
-import Image from "next/image";
 import GoalItem from "@/components/Goals/GoalItem";
 import Card from "@/components/ui/Card";
+import UserProfile from "@/components/Goals/UserProfile";
 
 const Goals = () => {
   const numbers = [0, 1, 2, 3, 4, 5];
   return (
     <Card title="Welcome" grid_item_class="second_item">
       <article className="w-full flex flex-col items-center mt-6 gap-y-6">
-        <div>
-          <div className="w-1/2 aspect-square rounded-full mx-auto">
-            <Image
-              width={736}
-              height={736}
-              src={"/profile.jpg"}
-              alt="Profile Picture"
-              className="w-full h-full rounded-full object-cover object-center"
-            />
-          </div>
-          <h3 className="text-center text-xl text-secondary font-semibold my-2">
-            Kaung Set
-          </h3>
-        </div>
+        <UserProfile />
         <ul className="w-full p-2 flex flex-col gap-y-8 mt-4 overscroll-y-scroll">
           {numbers.map((num) => (
             <GoalItem key={num} item={num} />

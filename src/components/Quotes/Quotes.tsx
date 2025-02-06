@@ -18,7 +18,7 @@ const Quotes = async () => {
 
   return (
     <Card title="Quote of the day" grid_item_class="fifth_item">
-      <div className="w-full h-full flex flex-col justify-around">
+      <div className="w-full h-full flex flex-col justify-around pb-4">
         <div className="w-full p-2 flex flex-col gap-y-2">
           <p className="text-center text-lg text-secondary font-medium">
             {quotes[0].q}

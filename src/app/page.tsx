@@ -1,8 +1,8 @@
-import Calendar from "../components/Calendar/Calendar";
-import Gallery from "../components/Gallery/Gallery";
-import Goals from "../components/Goals/Goals";
-import LofiPlayer from "../components/LofiPlayer/LofiPlayer";
-import Quotes from "../components/Quotes/Quotes";
+import Calendar from "@/components/Calendar/Calendar";
+import Gallery from "@/components/Gallery/Gallery";
+import Goals from "@/components/Goals/Goals";
+import LofiPlayer from "@/components/LofiPlayer/LofiPlayer";
+import Quotes from "@/components/Quotes/Quotes";
 import "./grid.css";
 // import ImageSlider from "@/components/Gallery/ImageSlider";
 

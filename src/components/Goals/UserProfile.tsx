@@ -14,7 +14,8 @@ const UserProfile = async () => {
           width={250}
           height={250}
           //src={"/profile.jpg"}
-          src={session.data.user?.user_metadata.avatar_url}
+          //src={session.data.user?.user_metadata.avatar_url}
+          src={sessionUser ? sessionUser.user_metadata.avatar_url : "/profile.jpg"}
           alt="Profile Picture"
           className="w-full h-full rounded-full object-cover object-center"
         />
@@ -24,15 +25,15 @@ const UserProfile = async () => {
           {sessionUser.user_metadata.full_name}
         </h3>
       ) : (
-        <div className="flex w-2/3 flex-col justify-center items-center gap-y-3">
+        <div className="flex flex-col justify-center items-center gap-y-3">
           <button
-            className="w-full border-2 border-secondary h-9 rounded-md text-sm font-semibold"
+            className="w-full border-2 border-secondary h-9 rounded-md text-sm font-semibold text-nowrap"
             formAction={loginWithGithub}
           >
             Login with Github
           </button>
           <button
-            className="w-full border-2 border-secondary h-9 rounded-md text-sm font-semibold"
+            className="w-full border-2 border-secondary h-9 rounded-md text-sm font-semibold text-nowrap"
             formAction={loginWithGithub}
           >
             Login with Google

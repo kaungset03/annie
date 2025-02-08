@@ -11,8 +11,8 @@ const ImageList = () => {
     "/bg1.webp",
     "/bg2.webp",
     "/bg3.webp",
-    "/bg4.webp",
-    "/bg5.webp",
+    // "/bg4.webp",
+    // "/bg5.webp",
   ];
 
   const showSlider = (i: number) => {
@@ -25,17 +25,17 @@ const ImageList = () => {
 
   return (
     <>
-      <ul className="w-full grid grid-cols-2 gap-3 flex-grow mt-6">
+      <ul className="w-full grid grid-cols-2 gap-3">
         {images.map((image, i) => (
           <li
             key={image}
-            className="border border-primary rounded-md w-fit aspect-video flex justify-center items-center cursor-pointer overflow-hidden"
+            className="border border-primary rounded-md w-full aspect-video flex justify-center items-center cursor-pointer overflow-hidden"
             onClick={() => showSlider(i)}
           >
             <Image
               src={image}
-              width={300}
-              height={300}
+              width={200}
+              height={200}
               alt={`image-${i}`}
               className="w-full h-full scale-125 object-cover object-center rounded-md hover:scale-100 transition-transform duration-500 ease-in-out"
             />

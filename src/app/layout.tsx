@@ -15,9 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`relative w-full h-screen antialiased bg-bg5 bg-cover bg-center bg-no-repeat bg-fixed text-primary overflow-hidden`}
+      className={`relative w-full h-screen antialiased bg-bg5 bg-cover bg-center bg-no-repeat bg-fixed text-primary overflow-y-auto xl:overflow-y-hidden`}
       >
-        <div className="absolute w-full h-full bg-black/30 -z-10" />
+        {/* <div className="absolute w-full h-full inset-0 bg-black/30 -z-10" /> */}
         {children}
       </body>
     </html>

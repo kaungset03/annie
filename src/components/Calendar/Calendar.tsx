@@ -47,7 +47,9 @@ const Calendar = () => {
           <div
             key={index}
             className={`${
-              day === currentDay ? "bg-background border-primary" : "bg-transparent border-transparent"
+              day === currentDay
+                ? "bg-background border-primary"
+                : "bg-transparent border-transparent"
             } border rounded-md p-2 text-center`}
           >
             {day}
@@ -56,29 +58,6 @@ const Calendar = () => {
       </div>
     </Card>
   );
-
-  // return (
-  //   <section className="third_item w-full bg-slate-200/30 rounded-xl p-3 font-sans">
-  //     <h2 className="text-lg tracking-[0.3em] font-semibold text-center uppercase">
-  //       {currentDate.toLocaleString("default", { month: "long" })} {currentYear}
-  //     </h2>
-  //     <div className="w-full grid grid-cols-7 gap-1 mt-4">
-  //       {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
-  //         <div key={day} className="p-2 text-center font-semibold text-secondary">
-  //           {day}
-  //         </div>
-  //       ))}
-  //       {calendarDays.map((day, index) => (
-  //         <div
-  //           key={index}
-  //           className={`calendar-day ${day === currentDay ? "bg-secondary" : ""} rounded-md p-2 text-center`}
-  //         >
-  //           {day}
-  //         </div>
-  //       ))}
-  //     </div>
-  //   </section>
-  // );
 };
 
 export default Calendar;

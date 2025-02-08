@@ -17,9 +17,9 @@ const Card = ({ title, grid_item_class, children }: CardProps) => {
   // Deep Teal: #1E4B5C (Rich teal) – Adds depth while staying in theme.
   return (
     <section
-      className={`${grid_item_class} w-full h-full bg-background bg-opacity-60 rounded-xl font-sans p-4`}
+      className={`${grid_item_class} w-full h-full bg-background bg-opacity-60 rounded-xl p-4`}
     >
-      <h2 className="text-xl tracking-[0.3em] font-semibold text-center uppercase">
+      <h2 className="text-xl uppercase text-center tracking-widest font-semibold mb-4">
         {title}
       </h2>
       {children}

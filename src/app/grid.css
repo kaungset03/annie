@@ -29,3 +29,16 @@
 .fifth_item {
   grid-area: e;
 }
+
+@media (max-width: 1300px) {
+  .grid_tem_area {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas:
+      "b b"
+      "a a"
+      "c c"
+      "e e"
+      "d d";
+  }
+}

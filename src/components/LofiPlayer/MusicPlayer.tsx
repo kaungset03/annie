@@ -3,11 +3,14 @@
 import { Music, Pause, Play, SkipBack, SkipForward } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { formatDuration } from "@/helpers/helpers";
-import { songs } from "@/constants/constants";
 import VSlider from "@/components/LofiPlayer/VSlider";
 import SoundEffect from "@/components/LofiPlayer/SoundEffect";
 
-const MusicPlayer = () => {
+type MusicPlayerProps = {
+  songs: Song[];
+};
+
+const MusicPlayer = ({ songs }: MusicPlayerProps) => {
   const playerRef = useRef<HTMLAudioElement>(null);
   const [currentSIndex, setCurrentSIndex] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
@@ -68,7 +71,7 @@ const MusicPlayer = () => {
     if (playerRef.current) {
       playerRef.current.src = songs[currentSIndex].url;
     }
-  }, [currentSIndex]);
+  }, [currentSIndex, songs]);
 
   useEffect(() => {
     if (playerRef.current) {
@@ -77,7 +80,7 @@ const MusicPlayer = () => {
   }, [volume]);
 
   return (
-    <div className="min-w-[300px] w-full flex flex-col items-center gap-y-10">
+    <div className="min-w-[300px] w-full flex flex-col items-center mt-6 gap-y-10">
       <div className="flex items-center gap-x-6">
         <p className="font-medium flex gap-x-[2px]">
           <span className="min-w-14 text-center">
@@ -120,7 +123,9 @@ const MusicPlayer = () => {
         >
           {isPlaying ? <Pause size={20} /> : <Play size={20} />}
           <div
-            className={`${isStalled && isPlaying ? "border-t-primary" : "border-transparent"} absolute inset-0 w-full h-full border-t animate-spin rounded-full`}
+            className={`${
+              isStalled && isPlaying ? "border-t-primary" : "border-transparent"
+            } absolute inset-0 w-full h-full border-t animate-spin rounded-full`}
           />
         </button>
         <button
@@ -135,7 +140,7 @@ const MusicPlayer = () => {
           <span className="text-primary text-sm font-medium">Music:</span>
           <VSlider volume={volume} onChange={handleVolumeChange} />
           <button className="ml-auto bg-background border-2 border-transparent text-primary p-2 rounded-md">
-            <Music size={18} />
+            <Music size={16} />
           </button>
         </li>
         <SoundEffect src="/eff-rain.mp3" title="Rain" />

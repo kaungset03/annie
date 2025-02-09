@@ -55,7 +55,7 @@ const ImageSlider = ({ index, closeSlider }: ImageSliderProps) => {
   }, [closeSlider, showNext, showPrev]);
 
   return (
-    <div className="absolute inset-0 w-full h-screen bg-black z-50">
+    <div className="fixed inset-0 w-full min-h-screen bg-black z-50">
       <div className="w-full h-full flex items-center overflow-hidden relative">
         <button
           className="z-40 text-primary p-3 rounded-full border border-secondary fixed top-5 right-5"
@@ -73,7 +73,7 @@ const ImageSlider = ({ index, closeSlider }: ImageSliderProps) => {
         {data.map((d) => (
           <div
             key={d}
-            className="w-full h-full flex-shrink-0 flex-grow flex justify-center items-center transition-transform duration-500 ease-in-out"
+            className="w-full aspect-video flex-shrink-0 flex-grow flex justify-center items-center transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${100 * imgIndex}%)` }}
           >
             <Image

@@ -11,25 +11,29 @@ const ImageList = () => {
     "/bg1.webp",
     "/bg2.webp",
     "/bg3.webp",
-    // "/bg4.webp",
-    // "/bg5.webp",
+    "/bg4.webp",
+    "/bg5.webp",
   ];
 
   const showSlider = (i: number) => {
+    // scroll to top
+    // disable scroll y
+    window.scrollTo({ top: 0, behavior: "smooth" });
     setImgIndex(i);
   };
 
   const closeSlider = () => {
+    // enable scroll y
     setImgIndex(null);
-  }
+  };
 
   return (
     <>
-      <ul className="w-full grid grid-cols-2 gap-3">
+      <ul className="w-full grid grid-cols-2 grid-rows-3 gap-3">
         {images.map((image, i) => (
           <li
             key={image}
-            className="border border-primary rounded-md w-full aspect-video flex justify-center items-center cursor-pointer overflow-hidden"
+            className="border border-primary rounded-md h-full aspect-video flex justify-center items-center cursor-pointer overflow-hidden"
             onClick={() => showSlider(i)}
           >
             <Image
@@ -42,7 +46,9 @@ const ImageList = () => {
           </li>
         ))}
       </ul>
-      {imgIndex !== null && <ImageSlider index={imgIndex} closeSlider={closeSlider} />}
+      {imgIndex !== null && (
+        <ImageSlider index={imgIndex} closeSlider={closeSlider} />
+      )}
     </>
   );
 };

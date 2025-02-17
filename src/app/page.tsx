@@ -1,8 +1,8 @@
 import Calendar from "@/components/Calendar/Calendar";
-import Gallery from "@/components/Gallery/Gallery";
 import Goals from "@/components/Goals/Goals";
 import LofiPlayer from "@/components/LofiPlayer/LofiPlayer";
 import Quotes from "@/components/Quotes/Quotes";
+import Pomodoro from "@/components/Pomodoro/Pomodoro";
 import "./grid.css";
 import { Suspense } from "react";
 // import ImageSlider from "@/components/Gallery/ImageSlider";
@@ -17,7 +17,7 @@ const Home = () => {
       </Suspense>
 
       <Calendar />
-      <Gallery />
+      <Pomodoro />
       <Suspense fallback={<p>Loading...</p>}>
         <Quotes />
       </Suspense>

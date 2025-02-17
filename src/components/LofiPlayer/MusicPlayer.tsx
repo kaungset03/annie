@@ -80,7 +80,7 @@ const MusicPlayer = ({ songs }: MusicPlayerProps) => {
   }, [volume]);
 
   return (
-    <div className="min-w-[300px] w-full flex flex-col items-center mt-6 gap-y-10">
+    <div className="min-w-[300px] w-full flex flex-col items-center mt-8 gap-y-8">
       <div className="flex items-center gap-x-6">
         <p className="font-medium flex gap-x-[2px]">
           <span className="min-w-14 text-center">

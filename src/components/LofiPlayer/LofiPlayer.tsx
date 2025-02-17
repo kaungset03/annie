@@ -24,7 +24,7 @@ const LofiPlayer = async () => {
   
   return (
     <Card title="Lofi Player" grid_item_class="first_item">
-      <article className="w-2/3 min-h-fit mx-auto flex flex-col justify-center items-center gap-y-12">
+      <article className="w-2/3 min-h-fit mx-auto flex flex-col items-center justify-around">
         <MusicNote />
         <MusicPlayer songs={data} />
       </article>
